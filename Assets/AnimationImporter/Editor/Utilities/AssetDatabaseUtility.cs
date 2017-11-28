@@ -27,7 +27,7 @@ namespace AnimationImporter
 		/// <param name="unityFilePath">Unity file path (e.g. "Assets/Resources/MyFile.asset".</param>
 		public static void CreateAssetAndDirectories(UnityEngine.Object unityObject, string unityFilePath)
 		{
-			var pathDirectory = Path.GetDirectoryName(unityFilePath) + UnityDirectorySeparator;
+			var pathDirectory = Path.GetDirectoryName(unityFilePath).Replace('\\', '/') + UnityDirectorySeparator;
 			CreateDirectoriesInPath(pathDirectory);
 
 			AssetDatabase.CreateAsset(unityObject, unityFilePath);
